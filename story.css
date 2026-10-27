@@ -1,0 +1,9 @@
+dialog#image-viewer{width:min(92vw,430px);}
+dialog#image-viewer img{max-height:60vh;margin-bottom:12px;}
+#viewer-copy{clear:both;padding:10px 8px 8px;text-align:center;}
+#viewer-kicker,#viewer-title{display:none;}
+#viewer-copy.story-copy{text-align:left;border-top:1px solid #c9d0c5;padding:18px 8px 10px;}
+#viewer-copy.story-copy #viewer-kicker{display:block;font-size:11px;letter-spacing:1.5px;color:#9b8350;margin-bottom:8px;}
+#viewer-copy.story-copy #viewer-title{display:block;font-family:GrasslandHei,"PingFang SC",sans-serif;font-size:25px;line-height:1.45;font-weight:600;color:#1e4934;margin:0 0 10px;}
+#viewer-caption{font-size:15px;line-height:1.85;margin:0;color:#566a59;}
+#viewer-copy.story-copy #viewer-caption{text-align:left;}

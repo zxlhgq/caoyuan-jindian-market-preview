@@ -1,32 +1,96 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>草原津典 · 草地羔羊礼盒</title>
-<style>
-html,body{margin:0;min-height:100%;background:#f5f6f4;color:#173f32;font-family:system-ui,-apple-system,"PingFang SC",sans-serif}
-main{min-height:100vh;display:grid;place-items:center;text-align:center;padding:32px}
-b{font-size:22px;letter-spacing:.08em}p{color:#617067;font-size:16px}
-</style>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+  <meta name="theme-color" content="#173d2d"/>
+  <title>草原津典 · 草地羔羊礼盒</title>
+  <link rel="stylesheet" href="font.css"/>
+  <link rel="stylesheet" href="shared.css"/>
+  <link rel="stylesheet" href="shell.css"/>
+  <link rel="stylesheet" href="story.css?v=20261026-2"/>
 </head>
 <body>
-<main><div><b>草原津典</b><p id="status">正在载入品牌页面…</p></div></main>
-<script>
-(async()=>{
-  try{
-    const files=["payload-00.txt","payload-01.txt","payload-02.txt","payload-03.txt","payload-04.txt"];
-    const parts=await Promise.all(files.map(f=>fetch(f,{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error(f);return r.text()})));
-    const bin=atob(parts.join(""));
-    const bytes=new Uint8Array(bin.length);
-    for(let i=0;i<bin.length;i++)bytes[i]=bin.charCodeAt(i);
-    const html=new TextDecoder("utf-8").decode(bytes);
-    document.open();document.write(html);document.close();
-  }catch(error){
-    document.getElementById("status").textContent="页面载入失败，请刷新后重试。";
-    console.error(error);
-  }
-})();
-</script>
+  <main id="brand-screen" class="app"><header class="topbar">草原津典</header><nav class="chapters" aria-label="详情章节">
+  <button class="chapter active" data-chapter="gift">礼盒</button><button class="chapter" data-chapter="origin">原产地</button><button class="chapter" data-chapter="breed">羊品种</button><button class="chapter" data-chapter="inside">盒中所含</button>
+</nav>
+<section id="gift" class="chapter-anchor">
+  <div class="hero">
+    <img loading="eager" fetchpriority="high" decoding="async" class="hero-photo" src="hero-pasture.jpg" alt="乌兰毛都牧场实景" />
+    <div class="hero-shade"></div>
+    <img loading="eager" decoding="async" class="hero-brand-logo" src="brand-logo-white.png" alt="草原津典品牌标志" data-mode="aspectFit" />
+    <div class="hero-content"><span class="eyebrow pale">草 地 羔 羊 · 乌 兰 毛 都</span><h1 class="display">草原的心意，<span class="block">郑重交给你。</span></h1><p class="hero-copy">来自乌兰毛都杭盖草原<br />一份有来处的草原好礼</p><button class="hero-link" data-anchor="gift-detail">走近这份礼盒 <span>↓</span></button></div>
+  </div>
+  <div id="gift-detail" class="gift-detail section-pad">
+    <div class="section-kicker"><span>草地羔羊礼盒</span><span class="en">THE GIFT</span></div>
+    <h2 class="title">一盒草原风物，<span class="block">一份相聚心意。</span></h2>
+    <p class="copy">礼盒以鎏金为主色，将乌兰毛都的河流、羊群与毡房绘入盒面；硬挺箱体配合手提结构，兼顾携带、防护与赠礼陈列。</p>
+    <div class="product-photo"><img loading="lazy" decoding="async" class="contain" src="box-real-scene.jpg" alt="草地羔羊礼盒实物包装摄影" data-mode="aspectFit" data-preview="true" /></div>
+    <div class="product-spec"><div><strong>6款</strong><span>羊肉部位</span></div><div><strong>≥17.5<span class="unit">kg</span></strong><span>羊肉净含量</span></div></div>
+    <div class="detail-pair">
+      <div class="detail-cell"><div class="detail-crop handle-crop"><img loading="lazy" decoding="async" src="box-real-scene.jpg" alt="实物礼盒黑色提手细节" data-preview="true" /></div><span class="detail-label">黑色提手</span></div>
+      <div class="detail-cell"><div class="detail-crop liner-crop"><img loading="lazy" decoding="async" src="box-insulation-detail.jpg" alt="礼盒斜视角保温内胆结构示意" data-preview="true" /></div><span class="detail-label">保温内胆</span></div>
+    </div>
+    <p class="detail-note">内胆兼顾隔温与缓冲，降低运输途中温度波动和碰撞带来的影响。</p>
+    <p class="micro">外盒为实物摄影；内胆为本地包装结构示意 · 轻触图片查看</p>
+  </div>
+</section>
+<section id="origin" class="chapter-anchor origin">
+  <div class="section-pad"><div class="section-kicker light"><span>原产地</span><span class="en">ULAN MODU</span></div><h2 class="title light-title">好味道，<span class="block">从这片草原说起。</span></h2><p class="copy light-copy">内蒙古 · 兴安盟 · 科右前旗<br />乌兰毛都杭盖草原</p></div>
+  <div class="origin-wide origin-video"><video src="origin-river-willow.mp4" poster="origin-river-willow-poster.jpg" autoplay="true" muted="true" loop="true" playsinline="true"></video><span class="image-note">乌兰毛都杭盖草原实拍｜蜿蜒河道与河心柳树。</span></div>
+  <div class="season-intro"><div class="section-kicker light"><span>草原的四时</span><span class="en">THE SEASONS</span></div><h2 class="title light-title">顺着四时，<span class="block">在草原自然生长。</span></h2><div class="season-rhythm"><span>春 · 生</span><span>夏 · 长</span><span>秋 · 收</span><span>冬 · 藏</span></div><p class="copy light-copy">从本地实拍看见花草、水源与羊群生长，也看见留在草原日常里的风土印记。自然放牧，是环境、羊群与生活方式共同形成的日常。</p></div>
+  <div class="nature-grid">
+    <figure class="nature-card"><img loading="lazy" decoding="async" src="season-selected-01.jpg" alt="紫色草本花朵在草地间盛开" data-preview="true" data-title="百草为食" data-story="草场不只生长牧草，也生长多样草本。羊群随季节自然采食，风味从每天的一口草开始。" /><figcaption><span>01</span><strong>百草为食</strong></figcaption></figure>
+    <figure class="nature-card"><img loading="lazy" decoding="async" src="season-selected-02.jpg" alt="阳光穿过草叶照在清澈溪水上" data-preview="true" data-title="清流润泽" data-story="清流穿过草根与石隙，滋养沿途草场，也维系羊群逐水而牧的日常。" /><figcaption><span>02</span><strong>清流润泽</strong></figcaption></figure>
+    <figure class="nature-card"><img loading="lazy" decoding="async" src="season-selected-03.jpg" alt="羊群沿草坡缓缓行进" data-preview="true" data-title="羊群自在" data-story="羊群沿山坡缓缓行进，在开阔草场中觅食、休憩，按自己的节奏自然生长。" /><figcaption><span>03</span><strong>羊群自在</strong></figcaption></figure>
+    <figure class="nature-card"><img loading="lazy" decoding="async" src="season-selected-04.jpg" alt="彩幡在草原风中舒展" data-preview="true" data-title="风土相承" data-story="风从彩幡间掠过，牧人对土地、牲畜与丰年的朴素祝愿，也在一季又一季中延续。" /><figcaption><span>04</span><strong>风土相承</strong></figcaption></figure>
+  </div>
+  <p class="origin-footnote">草木、水源、羊群与风土印记，均为乌兰毛都本地实拍。</p>
+</section>
+<section id="breed" class="chapter-anchor breed section-pad">
+  <div class="section-kicker"><span>认识草地羊</span><span class="en">THE BREED</span></div>
+  <h2 class="title">一脉蒙古羊血统，<span class="block">适应这片草原。</span></h2>
+  <p class="copy">黑头大尾草地羊属蒙古羊血统，经长期自然与人工选择形成地方良种。血统与选择共同保留下来的耐寒、结实和适应性，进一步表现为生长发育较快、出肉率较高，以及细嫩、肉味浓郁、膻味较轻的肉质特点。</p>
+  <figure class="feature-card"><div class="feature-photo face-photo"><img loading="lazy" decoding="async" src="sheep-face.jpg" alt="黑头草地羊的脸部与被毛近景" data-preview="true" /></div><figcaption><span class="feature-index">01 / 品种辨识</span><strong>深色头部，结实体格</strong><p>深浅头色与浅色被毛构成直观辨识；结实丰满的体格，则来自地方品种长期稳定下来的体态特征。</p></figcaption></figure>
+  <figure class="feature-card"><div class="feature-photo tail-photo"><img loading="lazy" decoding="async" src="sheep-tail.jpg" alt="草地羊宽厚尾部特征近景" data-preview="true" /></div><figcaption><span class="feature-index">02 / 草原适应</span><strong>宽厚大尾，是能量储备</strong><p>尾部集中储存脂肪，可在饲草阶段性不足时提供能量；配合蒙古羊耐寒、适应性强的特点，帮助羊群面对草原寒冷与季节变化。</p></figcaption></figure>
+  <p class="micro">羊群实拍 · 个体毛色和体态存在自然差异</p>
+</section>
+<section id="inside" class="chapter-anchor inside section-pad">
+  <div class="section-kicker"><span>礼盒内含</span><span class="en">INSIDE THE GIFT</span></div><h2 class="title">一份半羊，<span class="block">六类原切完整配置。</span></h2><p class="copy">从羊排、前后腿到脊骨与羊尾，以真实部位组成一套半羊配置；一份覆盖煎、烤、涮、炖等多种家庭吃法。</p>
+  <div class="fresh-note"><strong>半羊完整配置</strong><span>部位丰富、原切呈现，适合家庭囤购、家宴与多人分享。</span></div>
+  <div class="meat-grid">
+    <figure class="meat-card"><img loading="lazy" decoding="async" src="standard-rack.jpg" alt="羊排部位展示示意" data-mode="aspectFill" data-preview="true" /><figcaption><span>01</span><strong>羊排</strong></figcaption></figure>
+    <figure class="meat-card"><img loading="lazy" decoding="async" src="standard-frontleg.jpg" alt="羊前腿部位展示示意" data-mode="aspectFill" data-preview="true" /><figcaption><span>02</span><strong>羊前腿</strong></figcaption></figure>
+    <figure class="meat-card"><img loading="lazy" decoding="async" src="standard-hand.jpg" alt="手把肉部位展示示意" data-mode="aspectFill" data-preview="true" /><figcaption><span>03</span><strong>手把肉</strong></figcaption></figure>
+    <figure class="meat-card"><img loading="lazy" decoding="async" src="standard-backleg.jpg" alt="后腿肉包部位展示示意" data-mode="aspectFill" data-preview="true" /><figcaption><span>04</span><strong>后腿肉包</strong></figcaption></figure>
+    <figure class="meat-card"><img loading="lazy" decoding="async" src="standard-spine.jpg" alt="羊脊骨部位展示示意" data-mode="aspectFill" data-preview="true" /><figcaption><span>05</span><strong>羊脊骨</strong></figcaption></figure>
+    <figure class="meat-card"><img loading="lazy" decoding="async" src="standard-tail.jpg" alt="羊尾部位展示示意" data-mode="aspectFill" data-preview="true" /><figcaption><span>06</span><strong>羊尾</strong></figcaption></figure>
+  </div><p class="micro">部位展示示意，图片非实物等比例；实际外观与规格以产品标签和实物为准。</p>
+  <div class="accessory-head"><h3 class="subtitle">随盒附赠，也一并列明。</h3><p class="copy">四类随盒物品，不计入羊肉净含量。</p></div>
+  <div class="accessory-grid">
+    <figure class="accessory"><img loading="lazy" decoding="async" class="contain" src="gift-chive.jpg" alt="随盒韭菜花示意" data-mode="aspectFit" data-preview="true" /><figcaption>韭菜花</figcaption></figure>
+    <figure class="accessory"><img loading="lazy" decoding="async" class="contain" src="gift-chili.jpg" alt="随盒辣椒酱示意" data-mode="aspectFit" data-preview="true" /><figcaption>辣椒酱</figcaption></figure>
+    <figure class="accessory"><img loading="lazy" decoding="async" class="contain" src="gift-cutlery.jpg" alt="随盒餐具盒示意" data-mode="aspectFit" data-preview="true" /><figcaption>餐具盒</figcaption></figure>
+    <figure class="accessory"><img loading="lazy" decoding="async" class="contain" src="gift-card.jpg" alt="随盒卡片盒示意" data-mode="aspectFit" data-preview="true" /><figcaption>卡片盒</figcaption></figure>
+  </div><p class="micro">随盒物品展示示意；盒内构成与标签信息以实际交付为准。</p>
+  <div class="spec-table"><h3 class="subtitle">礼盒信息</h3><div class="spec-row"><span>产品名称</span><strong>草地羔羊礼盒</strong></div><div class="spec-row"><span>羊肉净含量</span><strong>≥17.5kg</strong></div><div class="spec-row"><span>内装</span><strong>六个真空包装</strong></div><div class="spec-row"><span>保存与食用</span><strong>请按标签及随附说明操作</strong></div></div>
+</section>
+<section class="closing section-pad"><span class="eyebrow pale">为下一次相聚</span><h2 class="title light-title">礼有来处，<span class="block">心意有分量。</span></h2><p class="copy light-copy">把想要的数量与赠礼安排，先记在意向单里。</p><button class="gold-button" data-intent="true">填写订购意向</button><p class="micro pale-note">当前可预览意向单，暂未开放在线提交。</p></section>
+<section class="archive section-pad"><div class="section-kicker"><span>草原风味产品体系</span><span class="en">COLLECTION</span></div><h2 class="title">从一份礼盒，<span class="block">延展更多草原风味。</span></h2><p class="copy">从礼盒到鲜切，品牌持续探索羊肉的不同产品形态。本栏为过往产品与产品方向展示，不代表实时在售。</p>
+  <article class="archive-item"><div class="archive-image"><img loading="lazy" decoding="async" class="contain" src="archive-luxury.jpg" alt="草原津典豪华礼盒完整包装" data-mode="aspectFit" data-preview="true" /></div><div class="archive-copy"><span>礼盒系列</span><h3>豪华礼盒</h3><p>礼盒外观展示</p></div></article>
+  <article class="archive-item"><div class="archive-image"><img loading="lazy" decoding="async" class="contain" src="archive-hand.jpg" alt="草原津典经典手把肉礼盒完整包装" data-mode="aspectFit" data-preview="true" /></div><div class="archive-copy"><span>礼盒系列</span><h3>经典手把肉礼盒</h3><p>红色手提包装</p></div></article>
+  <article class="archive-item"><div class="archive-image"><img loading="lazy" decoding="async" class="contain" src="archive-slices.jpg" alt="草原津典鲜切元宝肉完整托盒" data-mode="aspectFit" data-preview="true" /></div><div class="archive-copy"><span>鲜切系列</span><h3>鲜切元宝肉</h3><p>托盒包装</p></div></article>
+</section>
+<footer class="brand-end"><img loading="lazy" decoding="async" class="contain" src="brand-logo.png" alt="草原津典官方标志" data-mode="aspectFit" /><span>源自心灵牧场 · 味道口口流香</span></footer>
+<div class="bottom-space"></div>
+<div class="action-bar"><button class="back-top" data-top="true">回顶部</button><div class="action-summary"><strong>草地羔羊礼盒</strong><span>净含量≥17.5kg</span></div><button class="primary" data-intent="true">订购意向</button></div>
+</main>
+  <main id="intent-screen" class="app" hidden><header class="topbar intent-topbar"><button id="intent-back" aria-label="返回礼盒详情">‹ 返回</button>订购意向</header><div id="intent-body" class="intent-body"></div></main>
+  <dialog id="image-viewer" aria-label="图片详情">
+    <button id="close-viewer">关闭</button>
+    <img loading="lazy" decoding="async" id="viewer-photo" alt=""/>
+    <div id="viewer-copy"><span id="viewer-kicker">产地故事</span><h2 id="viewer-title"></h2><p id="viewer-caption"></p></div>
+  </dialog>
+  <script src="app.js?v=20261026-2"></script>
 </body>
 </html>
